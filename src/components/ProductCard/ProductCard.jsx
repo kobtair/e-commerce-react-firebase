@@ -17,7 +17,7 @@ export default function ProductCard({product}) {
         <img src={imageUrl} alt={name} />
         <div className="footer">
             <span className="price">{name}</span>
-            <span className="name">{price} $</span>
+            <span className="name">$ {price}</span>
         </div>
         <Button buttonType='inverted'onClick={addProductToCart  } >Add to Cart</Button>
     </div>
