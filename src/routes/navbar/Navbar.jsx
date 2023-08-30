@@ -6,7 +6,8 @@ import { UserContext } from "../../contexts/UserContext/UserContext";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext/ShoppingCartContext";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { useContext } from "react";
-import "./navbar.styles.scss";
+
+import { NavigationContainer, NavLink, NavLinksContainer, LogoContainer } from "./navbar.styles";
 
 export default function Navbar() {
   const { currentUser } = useContext(UserContext);
@@ -14,27 +15,27 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="navigation">
-        <Link className="logo-container" to="/">
+      <NavigationContainer>
+        <LogoContainer  to="/">
           <img className="logo" src={CrwnLogo} alt="crwn-clothing-logo" />
-        </Link>
-        <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
+        </LogoContainer>
+        <NavLinksContainer>
+          <NavLink  to="/shop">
             Shop
-          </Link>
+          </NavLink>
           {currentUser ? (
-            <span className="nav-link" onClick={() => signOutUser()}>
+            <NavLink as='span' onClick={() => signOutUser()}>
               Sign Out
-            </span>
+            </NavLink>
           ) : (
-            <Link className="nav-link" to="/auth">
+            <NavLink  to="/auth">
               Sign In
-            </Link>
+            </NavLink>
           )}
           <CartIcon />
-        </div>
+        </NavLinksContainer>
         {cartIsOpen && <CartDropdown />}
-      </div>
+      </NavigationContainer>
       <Outlet />
     </>
   );

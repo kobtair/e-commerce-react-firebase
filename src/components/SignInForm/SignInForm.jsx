@@ -3,7 +3,7 @@ import {
   signInUserAuthWithEmailAndPassword,
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/FormInput";
-import Button from "../Button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
 import "./sign-in-form.styles.scss";
 import { useState } from "react";
 
@@ -60,7 +60,7 @@ export default function SignInForm() {
         />
         <div className="button-group">
           <Button type="submit">Sign In</Button>
-          <Button type="button" onClick={logGoogle} buttonType="google">
+          <Button type="button" onClick={logGoogle} buttonType={BUTTON_TYPE_CLASSES.google}>
             Sign In With Google
           </Button>
         </div>
