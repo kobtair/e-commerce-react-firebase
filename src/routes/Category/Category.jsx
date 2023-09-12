@@ -3,6 +3,8 @@ import { CategoriesContext } from "../../contexts/CategoriesContext/CategoriesCo
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useParams } from "react-router-dom";
 
+import {CategoryPreviewContainer, Title, Preview} from '../../components/CategoryPreview/category-preview.styles'
+
 export default function Category() {
   const { category } = useParams();
   const { categoriesMap } = useContext(CategoriesContext);
@@ -11,16 +13,16 @@ export default function Category() {
     setProducts(categoriesMap[category]);
   }, [categoriesMap, category]);
   return (
-    <div className="category-preview-container" >
+    <CategoryPreviewContainer >
       <h2>
-        <span className="title" >{category.toUpperCase()}</span>
+        <Title >{category.toUpperCase()}</Title>
       </h2>
-      <div className="preview" style={{ rowGap: '20px'}}>
+      <Preview style={{ rowGap: '20px'}}>
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </div>
-    </div>
+      </Preview>
+    </CategoryPreviewContainer>
   );
 }

@@ -2,7 +2,7 @@ import Button from "../Button/Button";
 import CartItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ShoppingCartContext } from "../../contexts/ShoppingCartContext/ShoppingCartContext";
+import { CartContext } from "../../contexts/ShoppingCartContext/cart.context";
 import { CartDropdownContainer, CartItems, EmptyMessage } from "./cart-dropdown.styles";
 
 export default function CartDropdown() {

@@ -4,7 +4,7 @@ import {
 } from "../../utils/firebase/firebase.utils";
 import FormInput from "../form-input/FormInput";
 import Button, { BUTTON_TYPE_CLASSES } from "../Button/Button";
-import "./sign-in-form.styles.scss";
+import {SignInContainer} from "./sign-in-form.styles.jsx";
 import { useState } from "react";
 
 export default function SignInForm() {
@@ -38,7 +38,7 @@ export default function SignInForm() {
     }
   };
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <h2>Already have an Account?</h2>
       <span>Sign In using Email and Password</span>
       <form onSubmit={handleSubmit}>
@@ -65,6 +65,6 @@ export default function SignInForm() {
           </Button>
         </div>
       </form>
-    </div>
+    </SignInContainer>
   );
 }

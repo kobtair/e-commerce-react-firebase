@@ -1,14 +1,15 @@
-import './directory.styles.scss'
 import categories from '../../data/categories.json'
-import CategoryItem from '../category-item/categoryItem';
+import CategoryItem from '../CategoryItem/CategoryItem';
+
+import {DirectoryContainer} from './directory.styles.jsx'
 
 export default function Directory() {
   return (
-    <div className='directory-container'>
+    <DirectoryContainer>
 
       {categories.map((cat) => (
         <CategoryItem key={cat.id} cat={cat} />
       ))}
-    </div>
+    </DirectoryContainer>
   )
 }
